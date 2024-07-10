@@ -1,3 +1,4 @@
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,10 +29,11 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 168, 228, 212)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo ß Page'),
+      home: const MyHomePage(title: '血圧記録'),
     );
   }
 }
@@ -47,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  // ボタンを押したときに数字を増やす
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -60,20 +63,30 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+      //画面下のアイコン
+      bottomNavigationBar: ConvexAppBar(
+        backgroundColor: const Color.fromARGB(255, 115, 207, 183),
+        items: const [
+          TabItem(icon: Icons.home, title: 'Home'),
+          TabItem(icon: Icons.calendar_month, title: 'カレンダー'),
+          TabItem(icon: Icons.add, title: '入力'),
+          TabItem(icon: Icons.auto_graph_outlined, title: 'グラフ'),
+          TabItem(icon: Icons.settings, title: 'オプション'),
+        ],
+        onTap: (int i) => print('click index=$i'),
       ),
+      body: Form(
+          child: Column(
+        children: [
+          TextFormField(
+            decoration: const InputDecoration(labelText: 'Title'),
+            maxLength: 3,
+          ),
+          TextFormField(
+            decoration: const InputDecoration(labelText: 'Passwword'),
+          )
+        ],
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
