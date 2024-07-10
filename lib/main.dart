@@ -78,13 +78,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Form(
           child: Column(
         children: [
-          TextFormField(
-            decoration: const InputDecoration(labelText: 'Title'),
-            maxLength: 3,
-          ),
-          TextFormField(
-            decoration: const InputDecoration(labelText: 'Passwword'),
-          )
+          Container(
+              color: const Color.fromARGB(255, 241, 239, 202),
+              width: 500,
+              height: 100,
+              child: const Text('朝の血圧')),
+          Container(
+              color: const Color.fromARGB(255, 199, 201, 129),
+              width: 500,
+              height: 100,
+              child: const Text('夜の血圧'))
         ],
       )),
       floatingActionButton: FloatingActionButton(
