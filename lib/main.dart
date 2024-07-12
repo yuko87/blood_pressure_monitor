@@ -1,4 +1,5 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:blood_pressure_monitor/calendar_page.dart';
+import 'package:blood_pressure_monitor/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,27 +9,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
             seedColor: const Color.fromARGB(255, 168, 228, 212)),
         useMaterial3: true,
@@ -47,12 +32,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  void _tappedButton() {
+    print('Button tapped');
+  }
 
-  // ボタンを押したときに数字を増やす
-  void _incrementCounter() {
+  int _selectedIndex = 0;
+  static const List<Widget> _pages = <Widget>[
+    HomeContent(),
+    CalendarPage(),
+  ];
+
+  void _onItemTapped(int index) {
     setState(() {
-      _counter++;
+      _selectedIndex = index;
     });
   }
 
@@ -63,38 +55,27 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      //画面下のアイコン
-      bottomNavigationBar: ConvexAppBar(
-        backgroundColor: const Color.fromARGB(255, 115, 207, 183),
-        items: const [
-          TabItem(icon: Icons.home, title: 'Home'),
-          TabItem(icon: Icons.calendar_month, title: 'カレンダー'),
-          TabItem(icon: Icons.add, title: '入力'),
-          TabItem(icon: Icons.auto_graph_outlined, title: 'グラフ'),
-          TabItem(icon: Icons.settings, title: 'オプション'),
+      body: _pages.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'ホーム',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: 'カレンダー',
+          ),
         ],
-        onTap: (int i) => print('click index=$i'),
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
-      body: Form(
-          child: Column(
-        children: [
-          Container(
-              color: const Color.fromARGB(255, 241, 239, 202),
-              width: 500,
-              height: 100,
-              child: const Text('朝の血圧')),
-          Container(
-              color: const Color.fromARGB(255, 199, 201, 129),
-              width: 500,
-              height: 100,
-              child: const Text('夜の血圧'))
-        ],
-      )),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _tappedButton,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
