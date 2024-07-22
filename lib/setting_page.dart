@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -33,14 +32,35 @@ class SettingsPageState extends State<SettingsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('App Version: $_appVersion',
-                style: const TextStyle(fontSize: 18)),
-            const SizedBox(height: 20),
-            const ListTile(
-              title: Text('Export to CSV/PDF'),
+            Card(
+              elevation: 2,
+              margin: const EdgeInsets.only(bottom: 20),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    const Icon(Icons.info, color: Colors.blue),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text('App Version: $_appVersion',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
             ),
             const ListTile(
-              title: Text('Send Email'),
+              leading: Icon(Icons.file_download),
+              title: Text('CSV/PDF出力'),
+              subtitle: Text('計測データをCSVまたはPDF形式で出力します。'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.email),
+              title: Text('メール送信'),
+              subtitle: Text('計測データをメールで送信します'),
             ),
           ],
         ),
