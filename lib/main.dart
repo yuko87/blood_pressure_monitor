@@ -1,5 +1,6 @@
 import 'package:blood_pressure_monitor/calendar_page.dart';
 import 'package:blood_pressure_monitor/home_page.dart';
+import 'package:blood_pressure_monitor/setting_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static const List<Widget> _pages = <Widget>[
     HomeContent(),
     CalendarPage(),
+    SettingsPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -65,6 +67,11 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_today),
             label: 'カレンダー',
+          ),
+          // 設定ページ
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: '設定',
           ),
         ],
         currentIndex: _selectedIndex,
