@@ -19,29 +19,30 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 168, 228, 212)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: '血圧記録'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _tappedButton() {
-    print('Button tapped');
-  }
-
   int _selectedIndex = 0;
   static const List<Widget> _pages = <Widget>[
     HomeContent(),
     CalendarPage(),
     SettingsPage(),
+  ];
+
+  static const List<String> _titles = [
+    '血圧記録',
+    'カレンダー',
+    '設定',
   ];
 
   void _onItemTapped(int index) {
@@ -55,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(_titles.elementAt(_selectedIndex)),
       ),
       body: _pages.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
@@ -68,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.calendar_today),
             label: 'カレンダー',
           ),
-          // 設定ページ
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: '設定',
@@ -78,11 +78,15 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _tappedButton,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: _selectedIndex == 0
+          ? FloatingActionButton(
+              onPressed: () {
+                print('Button tapped');
+              },
+              tooltip: 'Increment',
+              child: const Icon(Icons.add),
+            )
+          : null,
     );
   }
 }
