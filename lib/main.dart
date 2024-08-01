@@ -1,4 +1,5 @@
 import 'package:blood_pressure_monitor/calendar_page.dart';
+import 'package:blood_pressure_monitor/graph_page.dart';
 import 'package:blood_pressure_monitor/home_page.dart';
 import 'package:blood_pressure_monitor/setting_page.dart';
 import 'package:flutter/material.dart';
@@ -36,12 +37,14 @@ class _MyHomePageState extends State<MyHomePage> {
   static const List<Widget> _pages = <Widget>[
     HomeContent(),
     CalendarPage(),
+    GraphPage(),
     SettingsPage(),
   ];
 
   static const List<String> _titles = [
     '血圧記録',
     'カレンダー',
+    'グラフ',
     '設定',
   ];
 
@@ -60,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: _pages.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -68,6 +72,10 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_today),
             label: 'カレンダー',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.auto_graph),
+            label: 'グラフ',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
