@@ -44,21 +44,25 @@ class HomeContent extends StatelessWidget {
                     ),
                   ),
                 ),
-                // 歩数
-                const CardList(
-                    icon: Icons.nordic_walking,
-                    mainText: '歩数',
-                    subText: 'ここに歩数が入ります。'),
-                // 体重
-                const CardList(
-                    icon: Icons.accessibility_new_sharp,
-                    mainText: '体重',
-                    subText: 'ここに体重が入ります。'),
-                // 目標
-                const CardList(
-                    icon: Icons.auto_awesome,
-                    mainText: '目標',
-                    subText: 'ここに目標が入ります。')
+                const Row(
+                  children: [
+                    // 歩数
+                    CardList(
+                        icon: Icons.nordic_walking,
+                        mainText: '歩数',
+                        subText: 'ここに歩数が入ります。'),
+                    // 体重
+                    CardList(
+                        icon: Icons.accessibility_new_sharp,
+                        mainText: '体重',
+                        subText: 'ここに体重が入ります。'),
+                    // 目標
+                    CardList(
+                        icon: Icons.auto_awesome,
+                        mainText: '目標',
+                        subText: 'ここに目標が入ります。')
+                  ],
+                ),
               ],
             ),
           )

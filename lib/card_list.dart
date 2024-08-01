@@ -20,7 +20,7 @@ class _CardListState extends State<CardList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.4,
+      width: MediaQuery.of(context).size.width * 0.25,
       margin: const EdgeInsets.all(12),
       padding: const EdgeInsets.only(top: 30, bottom: 30),
       decoration: BoxDecoration(
