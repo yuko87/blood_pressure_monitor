@@ -1,6 +1,7 @@
 import 'package:blood_pressure_monitor/calendar_page.dart';
 import 'package:blood_pressure_monitor/graph_page.dart';
 import 'package:blood_pressure_monitor/home_page.dart';
+import 'package:blood_pressure_monitor/list_page.dart';
 import 'package:blood_pressure_monitor/setting_page.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     HomeContent(),
     CalendarPage(),
     GraphPage(),
+    ListPage(),
     SettingsPage(),
   ];
 
@@ -45,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     '血圧記録',
     'カレンダー',
     'グラフ',
+    'リスト',
     '設定',
   ];
 
@@ -76,6 +79,10 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.auto_graph),
             label: 'グラフ',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt),
+            label: 'リスト',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
