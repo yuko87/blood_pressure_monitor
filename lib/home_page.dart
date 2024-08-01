@@ -19,13 +19,13 @@ class HomeContent extends StatelessWidget {
             clipBehavior: Clip.antiAliasWithSaveLayer, // 画像を丸角にする
             child: Column(
               children: [
-                // タイトル
+                // 日付
                 Container(
                   width: double.infinity,
                   padding:
                       const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                   child: const Text(
-                    'タイトル',
+                    'ここに日付が入ります',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 22,
@@ -37,7 +37,7 @@ class HomeContent extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: const Text(
-                    'ここに説明文が入ります。ここに説明文が入ります。ここに説明文が入ります。ここに説明文が入ります。',
+                    'ここに朝夜の血圧値が入ります。ここに朝夜の血圧値が入ります。ここに朝夜の血圧値が入ります。ここに朝夜の血圧値が入ります。',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
