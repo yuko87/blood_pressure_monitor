@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'card_list.dart';
+import 'date_view.dart';
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
@@ -24,13 +25,7 @@ class HomeContent extends StatelessWidget {
                   width: double.infinity,
                   padding:
                       const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                  child: const Text(
-                    'ここに日付が入ります',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 22,
-                    ),
-                  ),
+                  child: const DateView(),
                 ),
                 // 説明文
                 Container(
