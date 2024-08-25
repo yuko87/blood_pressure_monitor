@@ -1,6 +1,6 @@
 import 'package:blood_pressure_monitor/calendar_page.dart';
 import 'package:blood_pressure_monitor/graph_page.dart';
-import 'package:blood_pressure_monitor/home_page.dart';
+import 'package:blood_pressure_monitor/homepage/home_page.dart';
 import 'package:blood_pressure_monitor/input_page.dart';
 import 'package:blood_pressure_monitor/list_page.dart';
 import 'package:blood_pressure_monitor/setting_page.dart';
