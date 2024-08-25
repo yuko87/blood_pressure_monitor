@@ -32,7 +32,7 @@ class HomeContent extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: const Text(
-                    'ここに朝夜の血圧値が入ります。ここに朝夜の血圧値が入ります。ここに朝夜の血圧値が入ります。ここに朝夜の血圧値が入ります。',
+                    '朝\n夜',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
